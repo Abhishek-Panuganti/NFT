@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing NGINX 
+      - sudo yum update
+      - amazon-linux-extras install nginx1.12
+  build:
+    commands:
+      - echo build started on $(date) 
+      - cp index.html /var/www/html 
+  post_build:
+    commands:
+      - echo Build completed on $(date)
+
+artifacts:
+  files:
+    - '**/*'
